@@ -12,9 +12,9 @@ $this->assign('title', 'Blog Posts');
             <?= $post->created ?>
             <?= $this->Html->link('[Edit]', ['controller' =>'Posts', 'action' =>'edit', $post->id]);?>
             <?= $this->Form->PostLink(
-                    '[×]',
-                    ['action'=>'delete', $post->id],
-                    ['confirm'=>'Are you sure?', 'class'=>'fs12']
+                '[×]',
+                ['action'=>'delete', $post->id],
+                ['confirm'=>'Are you sure?', 'class'=>'fs12']
             );?>
         </li>
     <?php endforeach;?>

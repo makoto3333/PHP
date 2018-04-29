@@ -1,0 +1,30 @@
+.chat-group{
+    width:600px;
+    height:700px;
+    border: #1cc7ff 1px solid;
+
+}
+#message {
+    margin-top: 20px;
+    width:300px;
+}
+#chat{
+    overflow :auto;
+}
+#chat li{
+    list-style: none;
+    margin-bottom: 5px;
+}
+#chat li.right{
+    background-color:palegreen;
+    margin: 5px;
+    width: 300px;
+    float:right;
+}
+
+#chat li.left{
+    background-color: whitesmoke;
+    margin: 5px;
+    width: 300px;
+    float:left;
+}

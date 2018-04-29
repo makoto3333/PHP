@@ -305,6 +305,26 @@ return [
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
             'url' => env('DATABASE_TEST_URL', null),
         ],
+
+        //今回追加した別のデータベース
+       'chat' => [
+              //今回追加した別のデータベース  
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Mysql',
+            'persistent' => false,
+            'host' => 'localhost',
+            //'port' => 'non_standard_port_number',
+            'username' => 'dbuser',
+            'password' => '48hfsAo2',
+            'database' => 'chat_db',
+            //'encoding' => 'utf8mb4',
+            'timezone' => 'UTC',
+            'cacheMetadata' => true,
+            'quoteIdentifiers' => false,
+            'log' => false,
+            //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            'url' => env('DATABASE_TEST_URL', null),
+        ]
     ],
 
     /**

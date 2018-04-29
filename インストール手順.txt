@@ -1,0 +1,90 @@
+CakePHP AWSへのインストール
+sudo ssh -i "makotosato.pem" ec2-user@ec2-18-208-3-26.compute-1.amazonaws.com
+
+1.Gitからすべてを /var/www/html　内に落とす
+sudo git init
+sudo git remote add origin https://github.com/makoto3333/PHP.git
+sudo git fetch
+sudo git pull origin AddCake
+
+2.php apacheインストール
+
+sudo yum remove httpd* php-*
+sudo yum install -y httpd24 php70 mysql56-server php70-mysqlnd
+
+
+3.intl拡張
+sudo yum install php70-intl
+
+4.mbstring
+yum list | grep "\-mbstring"
+ sudo yum install php70-mbstring.x86_64
+
+5.pdo
+sudo vim  /etc/php.ini
+;;;;
+; Note: packaged extension modules are now loaded via the .ini files
+; found in the directory /etc/php.d; these are loaded by default.
+;;;;
+この直後にいかを追加
+
+extension=pdo.so
+extension=pdo_mysql.so
+
+extension=を追加
+
+6.ディレクトリ権限
+https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/install-LAMP.html
+
+7.DB構築
+config/app.php　編集
+
+8.Migration
+
+  エラーでたらMigrationディレクトリのファイル削除
+
+9.httpd.conf編集
+sudo vim /etc/httpd/conf/httpd.conf
+
+DocumentRoot "/var/www/html/webroot/"
+
+<Directory "/var/www/html">のところ
+    Options FollowSymLinks
+　　AllowOverride All
+
+
+
+10.sudo chkconfig httpd on
+
+   sudo service httpd start
+
+11.composer　いらんかも
+ curl -sS https://getcomposer.org/installer | php
+
+
+12.仮想ホスト
+http://hivecolor.com/id/9
+Apache のバーチャルホストの設定
+httpd.confのさいごについか
+一つでも仮想サーバーを作ってしまうと、外にあるグローバルなサーバーは無効になって、一番はじめに書いた仮想サーバーの設定がデフォルトになる
+
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+DocumentRoot /var/www/html/webroot/
+ServerName 18.208.3.26
+</VirtualHost>
+
+
+<VirtualHost *:80>
+DocumentRoot /var/www/vhosts/wordpress/
+ServerName boulderit.xyz 
+ErrorLog logs/word-press-error_log
+CustomLog logs/word-press-access_log common
+</VirtualHost>
+
+
+13.ドメイン
+ドメインをどっかで取得する
+
+https://qiita.com/nadonado/items/a7c32c94fef87b7db0d5
