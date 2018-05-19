@@ -251,9 +251,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'dbuser',
-            'password' => '48hfsAo2',
-            'database' => 'my_cake_test',
+            'username' => '',
+            'password' => '',
+            'database' => '',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
@@ -314,9 +314,9 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'dbuser',
-            'password' => '48hfsAo2',
-            'database' => 'chat_db',
+            'username' => '',
+            'password' => '',
+            'database' => '',
             //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
